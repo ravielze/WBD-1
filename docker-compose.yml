@@ -7,6 +7,8 @@ services:
             - ./php:/var/www/html
         ports:
             - 8000:80
+        depends_on:
+            - db
     db:
         container_name: db
         image: mysql
@@ -16,3 +18,13 @@ services:
             - 8001:3306
         volumes:
             - ./mount/mysql:/var/lib/mysql
+    phpmyadmin:
+        container_name: phpmyadmin
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - 8002:80
+        restart: always
+        environment:
+            PMA_HOST: db
+        depends_on:
+            - db
