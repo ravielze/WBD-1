@@ -2,7 +2,7 @@ version: "3.8"
 services:
     cgi:
         container_name: cgi
-        image: php:8.0-apache
+        build: .
         volumes:
             - ./src:/var/www/html
         ports:
