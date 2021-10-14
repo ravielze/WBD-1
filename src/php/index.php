@@ -1,7 +1,14 @@
 <?php
 include "utils/method_checker.php";
+include "database/connection.php";
 
 AllowedMethod("GET");
+$c = ConnectDatabase();
+$result = $c->query("SELECT A, B, C, D FROM Test");
+if ($result->num_rows > 0) {
+    echo var_dump($result->fetch_all(MYSQLI_ASSOC));
+}
+$c->close();
 
 // Array with names
 $a[] = "Anna";
