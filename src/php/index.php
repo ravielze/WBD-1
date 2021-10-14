@@ -1,4 +1,8 @@
 <?php
+include "utils/method_checker.php";
+
+AllowedMethod("GET");
+
 // Array with names
 $a[] = "Anna";
 $a[] = "Brittany";
