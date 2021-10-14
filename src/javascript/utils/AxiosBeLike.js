@@ -27,7 +27,7 @@ const getFunction = (url, params, onReadyFunction) => {
         parameterData.set(key, params[key].toString());
     });
     const parameter = parameterData.toString();
-    xmlHttp.open("GET", "php/" + url + "?" + (parameter.length > 0 ? parameter : ""));
+    xmlHttp.open("GET", "php/" + url + (parameter.length > 0 ? "?" + parameter : ""));
     xmlHttp.onreadystatechange = onReadyFunction;
     xmlHttp.send();
 };
