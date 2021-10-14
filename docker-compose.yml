@@ -4,7 +4,7 @@ services:
         container_name: cgi
         image: php:8.0-apache
         volumes:
-            - ./php:/var/www/html
+            - ./src:/var/www/html
         ports:
             - 8000:80
         depends_on:
