@@ -3,13 +3,12 @@
 $users = <<<EOD
 CREATE TABLE IF NOT EXISTS users (
     id_user     INTEGER     AUTO_INCREMENT,
-    email       TEXT        NOT NULL,
-    username    TEXT        NOT NULL,
+    email       TEXT        UNIQUE          NOT NULL,
+    username    TEXT        UNIQUE          NOT NULL,
     password    TEXT        NOT NULL,
-    is_admin    INTEGER     NOT NULL    DEFAULT (0),
+    is_admin    INTEGER     NOT NULL        DEFAULT (0),
 
-    PRIMARY KEY(id_user),
-    UNIQUE(email)
+    PRIMARY KEY(id_user)
 );
 EOD;
 
@@ -36,8 +35,10 @@ CREATE TABLE IF NOT EXISTS histories (
     id_dorayaki     INTEGER     NOT NULL,
 
     PRIMARY KEY(id_history),
-    FOREIGN KEY(id_modified_by) REFERENCES users(id_user),
+    FOREIGN KEY(id_modified_by) REFERENCES users(id_user)
+        ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY(id_dorayaki)    REFERENCES dorayakis(id_dorayaki)
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 EOD;
 ?>
