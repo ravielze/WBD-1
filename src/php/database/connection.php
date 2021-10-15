@@ -1,16 +1,12 @@
 <?php
-$host = "db";
-$username = "root";
-$password = "password";
-$database = "wbd";
 
 function ConnectDatabase() {
-    global $host, $username, $password, $database;
-    $conn = new mysqli($host, $username, $password, $database);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    $db = new PDO("sqlite:/data/db.sqlite3");
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    if ($db == null) {
+        die("Connection failed");
     }
-    return $conn;
+    return $db;
 }
 
 ?>
