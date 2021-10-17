@@ -1,7 +1,6 @@
 import Axios from "./utils/AxiosBeLike.js";
 const usernameField = document.getElementById("username");
 const emailField = document.getElementById("email");
-const isAdminField = document.getElementById("isAdmin");
 const passwordField = document.getElementById("password");
 
 const Register = () => {
@@ -9,23 +8,20 @@ const Register = () => {
         username: usernameField.value,
         password: passwordField.value,
         email: emailField.value,
-        is_admin: isAdminField.checked ? 1 : 0,
+        is_admin: 0,
     };
     Axios.Post("register.php", data, function () {
         console.log(this.statusText);
     });
 };
 
+const extraTextRedirect = document.getElementById("extra-text");
 if (document.title === "Register") {
-    usernameField.oninput = function () {
-        console.log(this.value);
+    extraTextRedirect.onclick = function () {
+        window.location.href = "/login.html";
     };
-    usernameField.onkeyup = function (event) {
-        if (event.key === "Enter") {
-            Register();
-        }
-    };
-    isAdminField.onchange = function () {
-        console.log(isAdminField.checked);
+} else if (document.title === "Login") {
+    extraTextRedirect.onclick = function () {
+        window.location.href = "/register.html";
     };
 }
