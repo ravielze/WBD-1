@@ -2,7 +2,6 @@
  *
  * @param {string} url
  * @param {object} body
- * @param {function} onReadyFunction
  */
 const postFunction = (url, body) => {
     return new Promise((resolve, reject) => {
@@ -27,7 +26,6 @@ const postFunction = (url, body) => {
  *
  * @param {string} url
  * @param {object} params
- * @param {function} onReadyFunction
  */
 const getFunction = (url, params) => {
     return new Promise((resolve, reject) => {
