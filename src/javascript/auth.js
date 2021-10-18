@@ -202,14 +202,14 @@ if (document.title === "Register") {
     extraTextRedirect.onclick = function () {
         window.location.href = "/register.html";
     };
-    if (usernameField.value.length < 4) {
-        MakeErrorMessage("Username field is required. Minimum 4 characters.");
-        return;
-    }
-    if (passwordField.value.length < 8) {
-        MakeErrorMessage("Password field is required. Minimum 8 characters.");
-        return;
-    }
+    // if (usernameField.value.length < 4) {
+    //     MakeErrorMessage("Username field is required. Minimum 4 characters.");
+    //     return;
+    // }
+    // if (passwordField.value.length < 8) {
+    //     MakeErrorMessage("Password field is required. Minimum 8 characters.");
+    //     return;
+    // }
     usernameField.oninput = function () {
         MakeErrorMessage("");
         CheckUsername();

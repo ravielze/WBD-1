@@ -13,10 +13,10 @@ body {
 }
 
 .form-input {
-    width: 100%;
+    width: 375px;
     height: 35px;
     border-radius: 6px;
-    margin: 10px 0;
+    margin: 10px;
     padding: 3px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     outline: none;
