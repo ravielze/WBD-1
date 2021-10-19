@@ -8,8 +8,9 @@ if (isset($data["username"])){
     $stm = $c->prepare("SELECT * FROM users WHERE username = ?");
     $stm->execute([$data["username"]]);
     $result = $stm->fetch(PDO::FETCH_ASSOC);
-    if ($result !== false){
+    if ($result !== false && $result["password"] === $data["password"]){
         http_response_code(200);
+        setcookie("user", $result["username"], 3600, "/");
         echo json_encode($result);
     } else {
         http_response_code(404);

@@ -8,7 +8,7 @@ if (isset($_GET["email"])){
     $stm = $c->prepare("SELECT * FROM users WHERE email = ?");
     $stm->execute([$_GET["email"]]);
     $result = $stm->fetch(PDO::FETCH_ASSOC);
-    if ($result !== false || strlen($_GET["username"]) < 4){
+    if ($result !== false || strlen($_GET["email"]) < 4){
         echo json_encode(array("email"=>$_GET["email"], "status"=>false));
     } else {
         echo json_encode(array("email"=>$_GET["email"], "status"=>true));
