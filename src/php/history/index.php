@@ -3,10 +3,11 @@ include "../utils/method_checker.php";
 include "../utils/key_checker.php";
 include "../utils/loggedin_user.php";
 include "../database/connection.php";
+include "../logged_in.php";
 
 AllowedMethod("GET");
 $c = ConnectDatabase();
-$loggedInUser = GetLoggedInUser();
+$loggedInUser = WhosLoggedIn();
 $itemsPerPage = 10;
 $page = isset($_GET["page"]) ? $_GET["page"] : 1;
 
@@ -17,7 +18,7 @@ JOIN users u ON h.id_modified_by = u.id_user";
 
 $cq = "SELECT count(id_history) as total_history FROM histories";
 
-if ($loggedInUser != NULL && $loggedInUser["is_admin"] == "1") {
+if (isset($loggedInUser["is_admin"]) && !$loggedInUser["is_admin"]) {
     $q .= " WHERE u.id_user = ?";
     $cq .= " WHERE id_modified_by = ?";
 }
@@ -26,7 +27,7 @@ $q .= " LIMIT ? OFFSET ?";
 $query = $c->prepare($q);
 $countQuery = $c->prepare($cq);
 
-if ($loggedInUser != NULL && $loggedInUser["is_admin"] == "1") {
+if (isset($loggedInUser["is_admin"]) && !$loggedInUser["is_admin"]) {
     $query->execute([$loggedInUser["id_user"], $itemsPerPage, ($page - 1) * $itemsPerPage]);
     $countQuery->execute([$loggedInUser["id_user"]]);
 } else {
