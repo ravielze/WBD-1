@@ -1,4 +1,4 @@
-import { createImg } from './CreateImg';
+import { createImg } from './CreateImg.js';
 
 const productContent = document.getElementById('product-content');
 
