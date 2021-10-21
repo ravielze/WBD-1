@@ -1,7 +1,7 @@
 <?php
-include "utils/method_checker.php";
-include "utils/key_checker.php";
-include "database/connection.php";
+include "../utils/method_checker.php";
+include "../utils/key_checker.php";
+include "../database/connection.php";
 AllowedMethod("POST");
 
 $requiredField = ["id", "amount"];
@@ -11,7 +11,7 @@ function sendResponse($statusCode, $data) {
     exit();
 }
 $c = ConnectDatabase();
-$idModifiedBy = 1;
+$idModifiedBy = 1; // TODO: Ngambil dari yang lagi log in
 $data = $_POST["data"];
 $updateQuery = $c->prepare("UPDATE dorayakis SET stock = stock - ? WHERE id_dorayaki = ?");
 $appendHistoryQuery = $c->prepare("INSERT INTO histories (amount, flag, id_modified_by, id_dorayaki) VALUES (?, ?, ?, ?)");

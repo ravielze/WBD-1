@@ -1,7 +1,7 @@
 <?php
-include "utils/method_checker.php";
-include "utils/key_checker.php";
-include "database/connection.php";
+include "../utils/method_checker.php";
+include "../utils/key_checker.php";
+include "../database/connection.php";
 AllowedMethod("GET");
 
 $c = ConnectDatabase();
