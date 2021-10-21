@@ -83,7 +83,7 @@ const polling = (fn, interval) => {
 }
 
 const getAllStock = () =>
-  Axios.Get("all_stock.php").then((allStock) => JSON.parse(allStock))
+  Axios.Get("dorayaki/index.php").then((allStock) => JSON.parse(allStock))
 
 const updateAllStock = () => {
   return getAllStock().then((allStock) => {
@@ -118,7 +118,7 @@ window.onload = () => {
         })
       }
     }
-    Axios.Post("buy_dorayaki.php", request)
+    Axios.Post("dorayaki/buy.php", request)
       .then(() => {
         for (let key in stocks) {
           stocks[key].reset()

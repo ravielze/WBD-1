@@ -65,7 +65,7 @@ const StockCard = (props) => {
 }
 
 const getAllStock = () =>
-  Axios.Get("all_stock.php").then((allStock) => JSON.parse(allStock))
+  Axios.Get("dorayaki/index.php").then((allStock) => JSON.parse(allStock))
 
 const polling = (fn, interval) => {
   const createTimeout = () => {
@@ -108,7 +108,7 @@ window.onload = () => {
         s.push(t)
       }
     }
-    Axios.Post("update_stock.php", s).then(() => alert("Update success"))
+    Axios.Post("dorayaki/update.php", s).then(() => alert("Update success"))
   }
   polling(updateAllStock, 2000)
 }
