@@ -2,7 +2,6 @@ import Axios from "./utils/AxiosBeLike.js"
 
 const container = document.getElementById("left")
 const updateBtn = document.getElementById("update")
-const lala = document.getElementById("lala")
 let timeout = null
 const stocks = {}
 
