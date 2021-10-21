@@ -3,6 +3,7 @@ const usernameField = document.getElementById("username");
 const emailField = document.getElementById("email");
 const passwordField = document.getElementById("password");
 const signupButton = document.getElementById("signup");
+const signinButton = document.getElementById("signin");
 const extraTextRedirect = document.getElementById("extra-text");
 const errorText = document.getElementById("error-text");
 
@@ -32,8 +33,31 @@ const Register = () => {
                 usernameField.value = "";
                 passwordField.value = "";
                 emailField.value = "";
+                passwordField.classList.remove("form-input-ok", "form-input-not-ok");
+                usernameField.classList.remove("form-input-ok", "form-input-not-ok");
+                emailField.classList.remove("form-input-ok", "form-input-not-ok");
             } else {
                 alert("Register fail");
+            }
+        })
+        .catch((err) => console.log(err));
+};
+
+const Login = () => {
+    const data = {
+        username: usernameField.value,
+        password: passwordField.value,
+    };
+    Axios.Post("login.php", data)
+        .then((res) => JSON.parse(res))
+        .then((obj) => {
+            if (obj.status) {
+                usernameField.value = "";
+                passwordField.value = "";
+                passwordField.classList.remove("form-input-ok", "form-input-not-ok");
+                usernameField.classList.remove("form-input-ok", "form-input-not-ok");
+            } else {
+                MakeErrorMessage("Wrong password or username. Failed to login.");
             }
         })
         .catch((err) => console.log(err));
@@ -99,7 +123,7 @@ const MakeErrorMessage = (text) => {
 
 if (document.title === "Register") {
     extraTextRedirect.onclick = function () {
-        window.location.href = "/login.html";
+        window.location.href = "/login.php";
     };
 
     usernameField.oninput = function () {
@@ -200,18 +224,32 @@ if (document.title === "Register") {
     };
 } else if (document.title === "Login") {
     extraTextRedirect.onclick = function () {
-        window.location.href = "/register.html";
+        window.location.href = "/register.php";
     };
-    // if (usernameField.value.length < 4) {
-    //     MakeErrorMessage("Username field is required. Minimum 4 characters.");
-    //     return;
-    // }
-    // if (passwordField.value.length < 8) {
-    //     MakeErrorMessage("Password field is required. Minimum 8 characters.");
-    //     return;
-    // }
-    usernameField.oninput = function () {
-        MakeErrorMessage("");
-        CheckUsername();
+    passwordField.oninput = function () {
+        if (passwordField.value.length < 8) {
+            passwordField.classList.remove("form-input-ok", "form-input-not-ok");
+            passwordField.classList.add("form-input-not-ok");
+        } else {
+            passwordField.classList.remove("form-input-ok", "form-input-not-ok");
+            passwordField.classList.add("form-input-ok");
+        }
+    };
+    signinButton.onclick = function () {
+        if (usernameField.value.length < 4) {
+            MakeErrorMessage("Username field is required. Minimum 4 characters.");
+            return;
+        }
+        if (!validateUsername(usernameField.value)) {
+            MakeErrorMessage(
+                "Username is not a valid. Allowed characters: A-Z, a-z, 0-9, a strip (-) and an underscore (_)"
+            );
+            return;
+        }
+        if (passwordField.value.length < 8) {
+            MakeErrorMessage("Password field is required. Minimum 8 characters.");
+            return;
+        }
+        Login();
     };
 }
