@@ -14,6 +14,8 @@ const postFunction = (url, body) => {
             if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
                 resolve(xmlHttp.responseText);
             } else {
+                console.log(xmlHttp.statusText);
+                console.log(xmlHttp.responseText);
                 reject(xmlHttp.statusText);
             }
         };
