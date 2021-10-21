@@ -1,6 +1,6 @@
 <?php
 
-include "database/connection.php";
+include_once "database/connection.php";
 function isLoggedIn()
 {
     if (!isset($_COOKIE["user"]) || !isset($_COOKIE["token"])) {
