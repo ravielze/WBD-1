@@ -6,7 +6,8 @@ CREATE TABLE IF NOT EXISTS users (
     email       TEXT        UNIQUE          NOT NULL,
     username    TEXT        UNIQUE          NOT NULL,
     password    TEXT        NOT NULL,
-    is_admin    INTEGER     NOT NULL        DEFAULT (0)
+    is_admin    INTEGER     NOT NULL        DEFAULT (0),
+    access_id   TEXT
 );
 EOD;
 
@@ -36,4 +37,3 @@ CREATE TABLE IF NOT EXISTS histories (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 EOD;
-?>

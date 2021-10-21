@@ -3,19 +3,20 @@ include "utils/method_checker.php";
 include "database/connection.php";
 AllowedMethod("POST");
 $data = json_decode($_POST["data"], true);
-if (isset($data["username"])){
+if (isset($data["username"])) {
     $c = ConnectDatabase();
     $stm = $c->prepare("SELECT * FROM users WHERE username = ?");
     $stm->execute([$data["username"]]);
     $result = $stm->fetch(PDO::FETCH_ASSOC);
-    if ($result !== false && $result["password"] === $data["password"]){
-        http_response_code(200);
-        setcookie("user", $result["username"], 3600, "/");
-        echo json_encode($result);
+    if ($result !== false && password_verify($data["password"], $result["password"])) {
+        $uniqueID = strval($result["id_user"]) . "-" . uniqid("", true) . "-" . md5($result["username"]);
+        setcookie("token", $uniqueID, time() + 3600, "/", httponly: true);
+        setcookie("user", $result["username"], time() + 3600, "/", httponly: true);
+        $c->exec("UPDATE users SET access_id = '" . $uniqueID . "' WHERE id_user = " . $result["id_user"]);
+        echo json_encode(array("status" => true, "data" => $result));
     } else {
-        http_response_code(404);
+        echo json_encode(array("status" => false));
     }
     exit();
 }
 http_response_code(400);
-?>
