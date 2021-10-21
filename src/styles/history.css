@@ -1,0 +1,33 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td,
+th {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--clr-primary-100);
+}
+
+th {
+  font-weight: bold;
+  background-color: rgba(180, 180, 180);
+}
+
+.pagination {
+  margin-top: 2em;
+  float: right;
+}
+
+.pagination span {
+  margin-left: 0.6em;
+  cursor: pointer;
+}
+
+.pagination span.selected {
+  text-decoration: underline;
+}
