@@ -4,11 +4,24 @@ import Dorayakis from './shared/Dorayakis.js';
 // Admin and dorayaki should
 // be fetched from db and
 // user session
-const dorayaki = Dorayakis[1];
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+/**
+ * TEMPORARY RENDERER
+ */
+console.log(parseInt(getParameterByName('pid')));
+const dorayaki = Dorayakis[parseInt(getParameterByName('pid'))];
 const isAdmin = true;
 
 // Append img to left container
-const img = createImg(dorayaki.picture, dorayaki.name);
+const img = createImg(dorayaki.picture, dorayaki.name); // TEMP
 img.className = 'product-image';
 document.querySelector('#imgContainer').append(img);
 
@@ -18,22 +31,22 @@ const descBox = document.querySelector('#descBox');
 // Product name
 const productName = document.createElement('h1');
 productName.className = 'gutterbottom';
-productName.innerHTML = dorayaki.name;
+productName.innerHTML = dorayaki.name; // TEMP
 
 // Product description
 const productDesc = document.createElement('p');
 productDesc.className = 'gutterbottom-2';
-productDesc.innerHTML = dorayaki.description;
+productDesc.innerHTML = dorayaki.description; // TEMP
 
 // Product price
 const productPrice = document.createElement('h3');
 productPrice.className = 'gutterbottom';
-productPrice.innerHTML = `Rp${dorayaki.price}`;
+productPrice.innerHTML = `Rp${dorayaki.price}`; // TEMP
 
 // Product stock
 const productStock = document.createElement('p');
 productStock.className = 'gutterbottom-2';
-productStock.innerHTML = `${dorayaki.stock} stocks left`;
+productStock.innerHTML = `${dorayaki.stock} stocks left`; // TEMP
 
 // List of Buttons
 const btnList = document.createElement('ul');
