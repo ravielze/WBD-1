@@ -1,0 +1,97 @@
+:root {
+  --darkgreen: #266679;
+  --lightgreen: #8ed1c0;
+  --orange: #f6a25a;
+}
+
+.darkgreen {
+  color: var(--darkgreen);
+}
+
+.lightgreen {
+  color: var(--lightgreen);
+}
+
+.orange {
+  color: var(--orange);
+}
+
+main {
+  display: flex;
+}
+
+.image-container {
+  flex: 1;
+}
+
+.description-container {
+  flex: 1;
+}
+
+.product-image {
+  padding: 2em 3em 0 0;
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+}
+
+.description-box {
+  padding: 2em 4em 0 0;
+}
+
+.gutterbottom {
+  margin-bottom: 1em;
+}
+
+.gutterbottom-2 {
+  margin-bottom: 2em;
+}
+
+.button-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-right: 2em;
+}
+
+.button-list > li:nth-child(2) {
+  margin-left: auto;
+}
+
+.buy-btn {
+  width: 144px;
+}
+
+.btn-icon {
+  cursor: pointer;
+  margin: 0 0.5em;
+  height: 42px;
+  width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  transition: 250ms;
+}
+
+#btn-edit {
+  color: var(--orange);
+  background-color: white;
+  border: 1px solid var(--orange);
+}
+
+#btn-edit:hover {
+  color: white;
+  background-color: var(--orange);
+}
+
+#btn-delete {
+  color: red;
+  background-color: white;
+  border: 1px solid red;
+}
+
+#btn-delete:hover {
+  color: white;
+  background-color: red;
+}
