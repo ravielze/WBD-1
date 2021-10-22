@@ -18,8 +18,9 @@ function isLoggedIn()
 
 function &WhosLoggedIn()
 {
+    $emptyArray = array();
     if (!isset($_COOKIE["user"]) || !isset($_COOKIE["token"])) {
-        return array();
+        return $emptyArray;
     }
     $c = ConnectDatabase();
     $stm = $c->prepare("SELECT * FROM users WHERE username = ?");
@@ -31,5 +32,5 @@ function &WhosLoggedIn()
         $result["is_admin"] = ($result["is_admin"] === "1");
         return $result;
     }
-    return array();
+    return $emptyArray;
 }

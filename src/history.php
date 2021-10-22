@@ -1,3 +1,10 @@
+<?php
+include "./php/logged_in.php";
+
+if (!isLoggedIn()) {
+  header("location: /login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,6 +16,7 @@
     <link rel="stylesheet" href="/styles/history.css" />
   </head>
   <body>
+    <?php include "./php/components/navbar.php" ?>
     <div class="main-container" id="main-container">
       <table id="table">
         <tr>

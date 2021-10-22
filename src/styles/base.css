@@ -1,68 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 :root {
-    --clr-primary-400: #266679;
-    --clr-primary-300: #4ABDAC;
-    --clr-primary-200: #8ED1C0;
-    --clr-primary-100: #B5D4D9;
+  --clr-primary-400: #266679;
+  --clr-primary-300: #4abdac;
+  --clr-primary-200: #8ed1c0;
+  --clr-primary-100: #b5d4d9;
 
-    --clr-secondary-400: #EF937E;
-    --clr-secondary-300: #F6A25A;
-    --clr-secondary-200: #F1C2A8;
+  --clr-secondary-400: #ef937e;
+  --clr-secondary-300: #f6a25a;
+  --clr-secondary-200: #f1c2a8;
 
-    --clr-white-400: #FFFFFF;
-    --clr-white-300: #FFFCED;
-
+  --clr-white-400: #ffffff;
+  --clr-white-300: #fffced;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 .main-container {
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0.2em 2em;
+  width: 100%;
+  max-width: 1300px;
+  margin: 2em auto;
+  padding: 0.2em 2em;
 }
 
 .btn {
-    box-sizing: border-box;
-    border-radius: 8px;
-    width: 100%;
-    border: none;
-    outline: none;
-    padding: 0.8em 2em;
-    color: var(--clr-white-400);
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    letter-spacing: 1px;
-    text-align: center;
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0.8em 2em;
+  color: var(--clr-white-400);
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 .btn:hover {
-    color: #eeeded;
-    box-shadow: 0px 15px 20px rgba(59, 165, 149, 0.1);
-    transform: translateY(-3px);
+  color: #eeeded;
+  box-shadow: 0px 15px 20px rgba(59, 165, 149, 0.1);
+  transform: translateY(-3px);
 }
 
 .btn-primary {
-    background: var(--clr-primary-300);
+  background: var(--clr-primary-300);
 }
 .btn-primary:hover {
-    background: var(--clr-primary-200);
+  background: var(--clr-primary-200);
 }
 
 .btn-secondary {
-    background: var(--clr-secondary-300);
+  background: var(--clr-secondary-300);
 }
 
 .btn-secondary:hover {
-    background: var(--clr-secondary-200);
+  background: var(--clr-secondary-200);
 }

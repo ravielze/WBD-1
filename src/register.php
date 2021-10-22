@@ -1,3 +1,9 @@
+<?php 
+include_once "./php/logged_in.php";
+if (isLoggedIn()) {
+    header("location: /dashboard.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
