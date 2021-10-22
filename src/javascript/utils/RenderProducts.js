@@ -25,7 +25,7 @@ export function renderProducts(array) {
     productCard.append(img);
     productCard.append(cardText);
     productCard.onclick = () => {
-      location.href = `./product.html?pid=${item.id}`; // CHANGE THIS TO item.dorayaki FOR REAL RENDERING
+      location.href = `./product.php?pid=${item.id}`; // CHANGE THIS TO item.dorayaki FOR REAL RENDERING
     };
 
     cardContainer.append(productCard);
