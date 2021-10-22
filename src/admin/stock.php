@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/styles/stock.css" />
   </head>
   <body>
+    <?php include "../php/components/navbar.php" ?>
     <div class="main-container">
       <div class="container">
         <div class="left" id="left"></div>

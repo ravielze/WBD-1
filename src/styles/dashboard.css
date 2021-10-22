@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Work Sans');
+@import url("https://fonts.googleapis.com/css?family=Work Sans");
 
 * {
   margin: 0;
@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 /* Colors */
@@ -26,77 +26,6 @@ body {
 
 .orange {
   color: var(--orange);
-}
-
-/* Navbar */
-nav {
-  padding: 1em;
-  background-color: var(--lightgreen);
-}
-
-nav > ul {
-  display: flex;
-  align-items: center;
-  list-style: none;
-}
-
-.navitem {
-  margin: 0 0.5em;
-}
-
-.navitem:nth-child(2) {
-  margin-left: auto;
-}
-
-li > a {
-  text-decoration: none;
-}
-
-.nav-searchbox {
-  position: relative;
-  margin-right: 2em;
-}
-
-.navinput {
-  border: none;
-  outline: none;
-  padding: 0.75em 0 0.75em 2.5em;
-  border-radius: 1em;
-  width: 100%;
-}
-
-.nav-submit {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  border: none;
-  left: 0;
-  top: 0;
-  padding: 0.9em 0 0 0.6em;
-}
-
-.nav-icon {
-  cursor: pointer;
-  height: 42px;
-  width: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 250ms;
-}
-
-.nav-icon:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 100%;
-}
-
-.hello-box {
-  cursor: default;
-  padding: 0.75em 1em;
-  background-color: var(--orange);
-  color: white;
-  border-radius: 12px;
 }
 
 /* Content */
