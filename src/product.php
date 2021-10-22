@@ -1,9 +1,9 @@
 <?php
 include "./php/logged_in.php";
-
 if (!isLoggedIn()) {
   header("location: /login.php");
 }
+$user = WhosLoggedIn();
 ?>
 
 <!DOCTYPE html>
@@ -29,11 +29,26 @@ if (!isLoggedIn()) {
         <!-- Image -->
       </div>
       <div class="description-container">
-        <div class="description-box" id="descBox">
+        <div class="description-box">
+          <div id="descBox">
+
+          </div>
           <!-- Contents -->
+          <ul class="button-list">
+          <?php 
+            if ($user["is_admin"]) {
+              echo '<li class="buy-btn"><a href="/admin/stock.php"><button class="btn btn-primary">Update</button></a></li>';
+              echo '<li class="btn-icon" id="btn-delete"><i class="far fa-trash-alt fa-lg"></i></li>';
+            } else {
+              echo '<li class="buy-btn"><a href="/purchase.php"><button class="btn btn-primary">Beli</button></a></li>';
+            }
+          ?>
+          </ul>
         </div>
       </div>
     </main>
   </body>
   <script type="module" src="./javascript/product.js"></script>
+  
+  <!-- <script type="text/javascript" src="./javascript/product_admin.js"></script> -->
 </html>

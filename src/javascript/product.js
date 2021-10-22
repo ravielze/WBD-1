@@ -52,34 +52,37 @@ GetProductById(parseInt(getParameterByName('pid'))).then((dorayaki) => {
   productStock.className = 'gutterbottom-2';
   productStock.innerHTML = `${dorayaki.stock} stocks left`; // TEMP
 
-  // List of Buttons
-  const btnList = document.createElement('ul');
-  btnList.className = 'button-list';
+  // // List of Buttons
+  // const btnList = document.createElement('ul');
+  // btnList.className = 'button-list';
 
-  // Buy button
-  const buyBtn = document.createElement('li');
-  buyBtn.className = 'buy-btn';
-  buyBtn.innerHTML = `<button class="btn btn-primary">Beli</button>`;
+  // // Buy button
+  // const buyBtn = document.createElement('li');
+  // buyBtn.className = 'buy-btn';
+  // buyBtn.innerHTML = `<button class="btn btn-primary">Beli</button>`;
+  // buyBtn.onclick = () => {
+  //   location.href = '/purchase.php'
+  // }
 
-  // Edit button
-  const editBtn = document.createElement('li');
-  editBtn.className = 'btn-icon';
-  editBtn.id = 'btn-edit';
-  editBtn.innerHTML = `<i class="far fa-edit fa-lg"></i>`;
+  // // Edit button
+  // const editBtn = document.createElement('li');
+  // editBtn.className = 'btn-icon';
+  // editBtn.id = 'btn-edit';
+  // editBtn.innerHTML = `<i class="far fa-edit fa-lg"></i>`;
 
-  // Delete button
-  const deleteBtn = document.createElement('li');
-  deleteBtn.className = 'btn-icon';
-  deleteBtn.id = 'btn-delete';
-  deleteBtn.innerHTML = `<i class="far fa-trash-alt fa-lg"></i>`;
+  // // Delete button
+  // const deleteBtn = document.createElement('li');
+  // deleteBtn.className = 'btn-icon';
+  // deleteBtn.id = 'btn-delete';
+  // deleteBtn.innerHTML = `<i class="far fa-trash-alt fa-lg"></i>`;
 
-  // Append buttons to list of buttons
-  btnList.append(buyBtn);
+  // // Append buttons to list of buttons
+  // btnList.append(buyBtn);
 
-  if (isAdmin) {
-    btnList.append(editBtn);
-    btnList.append(deleteBtn);
-  }
+  // if (isAdmin) {
+  //   btnList.append(editBtn);
+  //   btnList.append(deleteBtn);
+  // }
 
   // Append all to description box
   console.log(descBox);
@@ -88,7 +91,7 @@ GetProductById(parseInt(getParameterByName('pid'))).then((dorayaki) => {
   descBox.append(productDesc);
   descBox.append(productPrice);
   descBox.append(productStock);
-  descBox.append(btnList);
+  // descBox.append(btnList);
 });
 
 /**
