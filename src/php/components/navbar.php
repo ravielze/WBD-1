@@ -160,5 +160,9 @@ $isLoggedIn = isset($user["username"]);
       border-radius: 12px;
     }
 
+    .hello-box a {
+      text-decoration: none;
+    }
+
   </style>
 </header>

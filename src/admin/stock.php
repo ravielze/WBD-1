@@ -1,3 +1,11 @@
+<?php
+include "../php/logged_in.php";
+
+$user = WhosLoggedIn();
+if (!isset($user["is_admin"]) || $user["is_admin"] == false) {
+  header("location: /dashboard.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

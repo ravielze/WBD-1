@@ -1,3 +1,10 @@
+<?php
+include "./php/logged_in.php";
+
+if (!isLoggedIn()) {
+  header("location: /login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
