@@ -1,56 +1,55 @@
-import { createImg } from './utils/CreateImg.js';
-import Axios from './utils/AxiosBeLike.js';
-import Dorayakis from './shared/Dorayakis.js';
+import { createImg } from "./utils/CreateImg.js"
+import Axios from "./utils/AxiosBeLike.js"
 
 // Admin and dorayaki should
 // be fetched from db and
 // user session
 function getParameterByName(name, url) {
-  if (!url) url = window.location.href;
-  name = name.replace(/[\[\]]/g, '\\$&');
-  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-    results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return '';
-  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  if (!url) url = window.location.href
+  name = name.replace(/[\[\]]/g, "\\$&")
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url)
+  if (!results) return null
+  if (!results[2]) return ""
+  return decodeURIComponent(results[2].replace(/\+/g, " "))
 }
 /**
  * MAIN RENDERER
  */
 const GetProductById = (id) =>
-  Axios.Get('products/product.php', { id }).then((res) => JSON.parse(res));
+  Axios.Get("products/product.php", { id }).then((res) => JSON.parse(res))
 
-GetProductById(parseInt(getParameterByName('pid'))).then((dorayaki) => {
+GetProductById(parseInt(getParameterByName("pid"))).then((dorayaki) => {
   // const dorayaki = Dorayakis[parseInt(getParameterByName('pid'))];
-  const isAdmin = true;
+  const isAdmin = true
 
   // Append img to left container
-  const img = createImg(dorayaki.picture, dorayaki.name); // TEMP
-  img.className = 'product-image';
-  document.querySelector('#imgContainer').append(img);
+  const img = createImg(dorayaki.picture, dorayaki.name) // TEMP
+  img.className = "product-image"
+  document.querySelector("#imgContainer").append(img)
 
   // Append items to description box
-  const descBox = document.querySelector('#descBox');
+  const descBox = document.querySelector("#descBox")
 
   // Product name
-  const productName = document.createElement('h1');
-  productName.className = 'gutterbottom';
-  productName.innerHTML = dorayaki.name; // TEMP
+  const productName = document.createElement("h1")
+  productName.className = "gutterbottom"
+  productName.innerHTML = dorayaki.name // TEMP
 
   // Product description
-  const productDesc = document.createElement('p');
-  productDesc.className = 'gutterbottom-2';
-  productDesc.innerHTML = dorayaki.description; // TEMP
+  const productDesc = document.createElement("p")
+  productDesc.className = "gutterbottom-2"
+  productDesc.innerHTML = dorayaki.description // TEMP
 
   // Product price
-  const productPrice = document.createElement('h3');
-  productPrice.className = 'gutterbottom';
-  productPrice.innerHTML = `Rp${dorayaki.price}`; // TEMP
+  const productPrice = document.createElement("h3")
+  productPrice.className = "gutterbottom"
+  productPrice.innerHTML = `Rp${dorayaki.price}` // TEMP
 
   // Product stock
-  const productStock = document.createElement('p');
-  productStock.className = 'gutterbottom-2';
-  productStock.innerHTML = `${dorayaki.stock} stocks left`; // TEMP
+  const productStock = document.createElement("p")
+  productStock.className = "gutterbottom-2"
+  productStock.innerHTML = `${dorayaki.stock} stocks left` // TEMP
 
   // // List of Buttons
   // const btnList = document.createElement('ul');
@@ -85,16 +84,20 @@ GetProductById(parseInt(getParameterByName('pid'))).then((dorayaki) => {
   // }
 
   // Append all to description box
-  console.log(descBox);
-  console.log(productName);
-  descBox.appendChild(productName);
-  descBox.append(productDesc);
-  descBox.append(productPrice);
-  descBox.append(productStock);
+
+  descBox.appendChild(productName)
+  descBox.append(productDesc)
+  descBox.append(productPrice)
+  descBox.append(productStock)
   // descBox.append(btnList);
-});
+})
 
 /**
  * TEMPORARY RENDERER
  */
-console.log(parseInt(getParameterByName('pid')));
+const deleteBtn = document.getElementById("btn-delete")
+if (deleteBtn !== null) {
+  deleteBtn.onclick = () => {
+    alert("Sorry feature not implemented")
+  }
+}
