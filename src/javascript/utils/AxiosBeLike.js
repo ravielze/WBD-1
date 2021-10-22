@@ -23,6 +23,23 @@ const postFunction = (url, body) => {
         xmlHttp.send(bodyData.toString());
     });
 };
+const postFormDataFunction = (url, formData) => {
+    return new Promise((resolve, reject) => {
+        const xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("POST", "/php/" + url);
+        xmlHttp.onload = () => {
+            if (xmlHttp.status >= 200 && xmlHttp.status < 300) {
+                resolve(xmlHttp.responseText);
+            } else {
+                console.log(xmlHttp.statusText);
+                console.log(xmlHttp.responseText);
+                reject(xmlHttp.statusText);
+            }
+        };
+        xmlHttp.onerror = () => reject(xmlHttp.statusText);
+        xmlHttp.send(formData);
+    });
+};
 
 /**
  *
@@ -53,4 +70,5 @@ const getFunction = (url, params = {}) => {
 export default {
     Post: postFunction,
     Get: getFunction,
+    PostFormData: postFormDataFunction,
 };

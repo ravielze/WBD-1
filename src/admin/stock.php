@@ -1,3 +1,11 @@
+<?php
+include "../php/logged_in.php";
+
+$user = WhosLoggedIn();
+if (!isset($user["is_admin"]) || $user["is_admin"] == false) {
+  header("location: /dashboard.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,6 +17,7 @@
     <link rel="stylesheet" href="/styles/stock.css" />
   </head>
   <body>
+    <?php include "../php/components/navbar.php" ?>
     <div class="main-container">
       <div class="container">
         <div class="left" id="left"></div>

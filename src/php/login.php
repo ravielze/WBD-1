@@ -3,7 +3,10 @@ include "utils/method_checker.php";
 include "database/connection.php";
 AllowedMethod("POST");
 $data = json_decode($_POST["data"], true);
-if (isset($data["username"])) {
+if (
+    KeyCheck($data, ["username", "password"])
+    && IsLength($data, array("username" => 4, "password" => 8))
+) {
     $c = ConnectDatabase();
     $stm = $c->prepare("SELECT * FROM users WHERE username = ?");
     $stm->execute([$data["username"]]);
