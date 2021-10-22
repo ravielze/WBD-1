@@ -6,45 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Dorayaki</title>
-    <link rel="stylesheet" href="./styles/dashboard.css" />
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/create.css" />
     <script type="module" src="javascript/create.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li class="navitem">
-                    <a href="./dashboard.html" class="darkgreen">
-                        <h2>Doraemonangis Store</h2>
-                    </a>
-                </li>
-                <li class="navitem">
-                    <form action="./searchpage.html" method="GET" class="nav-searchbox">
-                        <input type="text" placeholder="Cari di sini ..." name="q" class="navinput" />
-                        <button type="submit" value="Submit" class="nav-submit">
-                            <i class="fas fa-search fa-lg darkgreen"></i>
-                        </button>
-                    </form>
-                </li>
-                <li class="navitem nav-icon">
-                    <i class="fas fa-shopping-cart fa-lg darkgreen"></i>
-                </li>
-                <li class="navitem nav-icon">
-                    <i class="fas fa-sign-out-alt fa-lg darkgreen"></i>
-                </li>
-                <li class="navitem">
-                    <div class="hello-box">
-                        <p>Hai, John!</p>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <?php include "./php/components/navbar.php" ?>
     <main class="main-container" style="margin-bottom: 100px;">
         <h2 class="form-title">Penambahan Varian</h2>
         <span id="error-text"></span>

@@ -36,7 +36,7 @@ $isLoggedIn = isset($user["username"]);
             echo '<a class="navitem nav-icon" href="/admin/stock.php">
                     <i class="fas fa-warehouse fa-lg darkgreen"></i>
                   </a>';
-            echo '<a class="navitem nav-icon" href="">
+            echo '<a class="navitem nav-icon" href="/create.php">
                     <i class="fas fa-plus fa-lg darkgreen"></i>
                   </a>';
           } else {
