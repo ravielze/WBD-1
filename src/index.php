@@ -1,3 +1,6 @@
+<?php 
+header("location: /login.php");
+?>
 <html>
     <head>
         <script>
