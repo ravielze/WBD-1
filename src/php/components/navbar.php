@@ -48,9 +48,9 @@ $isLoggedIn = isset($user["username"]);
           echo '<a class="navitem nav-icon" href="/history.php">
                   <i class="fas fa-history fa-lg darkgreen"></i>
                 </a>';
-          echo '<a class="navitem nav-icon">
-                  <i class="fas fa-sign-out-alt fa-lg darkgreen"></i>
-                </a>';
+          echo '<a class="navitem nav-icon" href="/php/logout.php">
+                    <i class="fas fa-sign-out-alt fa-lg darkgreen"></i>
+                  </a>';
         }
       ?>
       <li class="navitem">

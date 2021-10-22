@@ -1,6 +1,7 @@
 <?php
 include "utils/method_checker.php";
 include "database/connection.php";
+include "utils/key_checker.php";
 AllowedMethod("POST");
 $data = json_decode($_POST["data"], true);
 if (
