@@ -80,3 +80,18 @@ main {
 .card-text > :last-child {
   font-size: 0.75em;
 }
+
+.pagination-container {
+  display: flex;
+  justify-content: right;
+  padding-right: 2em;
+}
+
+#paginationBox {
+  display: flex;
+}
+
+.pagination-item {
+  margin: 0 0.5em;
+  cursor: pointer;
+}

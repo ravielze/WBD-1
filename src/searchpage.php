@@ -16,6 +16,11 @@
       <div id="product-content">
         <!-- Cards rendered here -->
       </div>
+      <div class="pagination-container">
+        <div id="paginationBox">
+          <!-- Pagination -->
+        </div>
+      </div>
     </main>
   </body>
   <script type="module" src="./javascript/searchpage.js"></script>

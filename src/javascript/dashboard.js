@@ -7,9 +7,9 @@ import Axios from './utils/AxiosBeLike.js';
 /**
  * TEMPORARY RENDERER
  */
-import tempDorayakis from './shared/Dorayakis.js';
+// import tempDorayakis from './shared/Dorayakis.js';
 
-renderProducts(tempDorayakis);
+// renderProducts(tempDorayakis);
 
 /**
  * MAIN RENDERER
